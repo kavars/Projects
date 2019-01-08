@@ -1,0 +1,27 @@
+Small wolf hp 3 atc 2
+Wolf hp 5 atc 3
+Giant wolf hp 10 atc 5 
+King wolf hp 15 atc 7
+Small bear hp 4 atc 2
+Bear hp 6 atc 3
+Giant bear hp 12 atc 5
+Small goblin hp 2 atc 3
+Goblin 3 atc 4
+Hob goblin hp 6 atc 7
+Snake hp 2 atc 1
+Big yellow snake 5 atc 2
+Giant snake hp 8 atc 3
+Cub wild boar 4 atc 1
+Wild boar 10 atc 2
+Giant wild boar hp 16 atc 3
+Cub deer hp 5 atc 1
+Deer hp 10 atc 2
+Giant deer hp 15 atc 3 
+Deer king hp 25 atc 5
+Cub rat hp 1 atc 1
+Rat hp 2 atc 2
+Big rat hp 3 atc 3
+Rat king hp 5 atc 4 
+Bandit hp 4 atc 1
+Bandit hp 6 atc 2
+Bandit hp 8 atc 3

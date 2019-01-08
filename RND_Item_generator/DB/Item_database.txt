@@ -1,0 +1,79 @@
+Chain-mail 1 def 150 br
+Chain-mail 2 def 250 br 
+Chain-mail 3 def 450 br
+Chain-mail 4 def 1000 br
+Chain-mail 5 def 2500 br
+Fabric armor 1 def 50 br
+Fabric armor 2 def 250 br
+Fabric armor 3 def 450 br
+Fabric armor 4 def 1000 br
+Fabric armor 5 def 2500 br
+Leather armor 1 def 150 br 
+Leather armor 2 def 250 br
+Leather armor 3 def 450 br
+Leather armor 4 def 1000 br
+Leather armor 5 def 2500 br
+Sword 2 atc 500 br
+Sword 3 atc 850 br
+Sword 4 atc 1500 br
+Sword 5 atc 2500 br
+Sword 6 atc 4000 br
+Stick 1 atc 500 br
+Stick 2 atc 850 br
+Stick 3 atc 1500 br
+Stick 4 atc 2500 br
+Stick 5 atc 4000 br
+Bow 1 atc 500 br
+Bow 2 atc 850 br
+Bow 3 atc 1500 br
+Bow 4 atc 2500 br
+Bow 5 atc 4000 br
+Small red water 2 hp 10 br
+Red water 6 hp 30 br
+Big red water 12 hp 60 br
+Small blue water 2 m 10 br
+Blue water 4 m 30 br
+Big blue water 8 m 60 br
+Damage 2 atc 25 br
+Highest damage 4 atc 50 br
+Defense 4 def 25br
+Highest defense 8 atc 50 br
+Small poison 1 atc 20 br
+Big poison 2 atc 60 br
+Tail 1br
+Branch 1br
+Rock 1 br
+Fur 2 br
+Claw 1 br
+Nail 1 br
+Small piece of meat 1 hp 2 br
+Big piece of meat 2 hp 4 br
+Giant piece of meat 5 hp 10 br
+Rutten meat 1 hp 5 br
+Eye 1 br
+Grass 1 br
+Tree bark 1 br
+Mushroom 1 hp 3 br
+Rutten Mushroom 1 hp 5 br
+Tree ring 10 br
+Silver ring 50 br
+Golden ring 100 br
+Book 5 br
+Rare book 43 br
+Flower 3 br
+Rare light-blue flower 10 br
+Rare red flower 14 br
+Rare pink flower 23 br
+Rare black flower 50 br
+Rare silver flower 80 br
+Rare golden flower 150 br
+Keys 1 br
+Small bag 10 I 150 br
+Medium bag 15 I 500 br
+Large bag 20 I 1120 br
+Broken ax 2 br
+Broken sword 2 br
+Broken bow 2 br
+Broken steak 2 br
+Turn clothes 1 br
+Sock 1 br
