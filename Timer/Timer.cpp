@@ -9,7 +9,7 @@
 
 Timer::Timer():
 start(std::chrono::high_resolution_clock::now()) //catch start point
-{ }
+{ end = 0;}
 
 Timer::timePoint Timer::checkTimeEnd()
 {
