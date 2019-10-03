@@ -17,22 +17,37 @@ void Inventory::addItem(Item* item)
 {
     if (actualItem != capacity)
     {
-        inventory.push_back(item);
+        size_t num = 0;
+        for (size_t i = 0; i != capacity; ++i) {
+            if (inventory[i] == NULL) {
+                num = i;
+                break;
+            }
+        }
+
+        inventory[num] = item;
+
+        std::cout << std::endl;
         ++actualItem;
     } else {
         std::cout << "Your inventory full" << std::endl;
     } 
 }
 
-void Inventory::deleteItem(std::vector<Item*>::iterator itItem)
+void Inventory::deleteItem(size_t itemNum)
 {
-    inventory.erase(itItem);
+    std::map<size_t, Item*>::iterator delIter = inventory.find(itemNum);
+    inventory.erase(delIter);
+    --actualItem;
 }
 
 void Inventory::coutInventory()
 {
-    for (std::vector<Item*>::iterator itInv = inventory.begin(); itInv != inventory.end(); ++itInv)
+    std::cout << "Capacity of your inventory: " << capacity << std::endl;
+    std::cout << "Now in inventory " << actualItem << " of item(s)" << std::endl;
+    for (std::map<size_t, Item*>::iterator itInv = inventory.begin(); itInv != inventory.end(); ++itInv)
     {
-        (*itInv)->printItem();
+        std::cout << itInv->first << " ";
+        itInv->second->printItem();
     }
 }

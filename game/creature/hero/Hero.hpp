@@ -27,8 +27,9 @@ public:
     void checkStat();
 
     void addItemToInv(Item* item);
-    // void delItemFromInv();
-//    void equipItem(); // одевает предмет на персонажа, ячейки вещей у героя должны быть пустыми
+    void delItemFromInv();
+    
+    void equipItem(); // одевает предмет на персонажа, ячейки вещей у героя должны быть пустыми
 //    void unequipItem(); // возвращает предмет в инвентарь
     
     Inventory& getInv();

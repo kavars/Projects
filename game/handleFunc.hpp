@@ -15,4 +15,5 @@
 
 void battle(Hero &hero);
 
+
 #endif // HANDLEFUNC_HPP

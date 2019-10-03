@@ -23,20 +23,26 @@
 
 int main() {
 
-//    Inventory inv;
+    Inventory inv;
 //
-//    Weapon weapTest("Sword", 1);
-//    Armor  armTest("Leather Chest", 2);
+    Weapon weapTest("Sword", 1);
+//    Item itemTest("SW");
+    Armor  armTest("Leather Chest", 2);
 //
-//    Weapon* weapPoint = &weapTest;
-//    Armor*  armorPoint = &armTest;
+    Weapon* weapPoint = &weapTest;
+//    Item* weapPoint = &itemTest;
+    Armor*  armorPoint = &armTest;
 //
 //    inv.addItem(weapPoint);
 //    inv.addItem(armorPoint);
+    
 
     srand(static_cast<unsigned int>(time(0)));
 
     Hero hero;
+    
+    hero.addItemToInv(weapPoint);
+    hero.addItemToInv(armorPoint);
 
     // main loop
 
@@ -64,7 +70,24 @@ int main() {
         
         case 2:
             system("clear");
-            hero.getInv().coutInventory(); // запилить меню инвентаря
+                std::cout << "Choose what to do:" << std::endl;
+                std::cout << "1: Check inventory" << std::endl;
+                std::cout << "2: Delte item" << std::endl;
+                std::cin >> choose;
+                
+                switch (choose) {
+                    case 1:
+                        system("clear");
+                        hero.getInv().coutInventory();
+                        break;
+                    case 2:
+                        system("clear");
+                        hero.delItemFromInv();
+                        break;
+                    default:
+                        std::cout << "Illigal number!" << std::endl;
+                        break;
+                }
             break;
         
         case 3:

@@ -12,7 +12,7 @@ hp(hp), attackPwr(attackPwr), defence(defence)
 { }
 
 int Creature::attack() {
-
+    
     srand(static_cast<unsigned int>(time(0)));
     int randomNumber = rand();
     

@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 
 #include "Item_type/Weapon.hpp"
 #include "Item_type/Armor.hpp"
@@ -19,10 +20,10 @@ public:
     Inventory();
 
     void addItem(Item* item);
-    void deleteItem(std::vector<Item*>::iterator itItem);
+    void deleteItem(size_t itemNum);
     void coutInventory();
 private:
-    std::vector<Item*> inventory;
+    std::map<size_t, Item*> inventory;
     size_t capacity;
     size_t actualItem;
 };

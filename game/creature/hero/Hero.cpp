@@ -51,8 +51,20 @@ void Hero::checkStat()
 
 void Hero::addItemToInv(Item* item)
 {
-    //
+//    std::cout << "Item add 1" << std::endl;
+    inv.addItem(item);
 }
+
+void Hero::delItemFromInv()
+{
+    system("clear");
+    inv.coutInventory();
+    std::cout << "Enter Num of item to delete" << std::endl;
+    size_t numItem;
+    std::cin >> numItem;
+    inv.deleteItem(numItem);
+}
+
 
 Inventory& Hero::getInv()
 {
