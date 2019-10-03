@@ -23,16 +23,16 @@
 
 int main() {
 
-//    Inventory inv;
-//
-//    Weapon weapTest("Sword", 1);
-//    Armor  armTest("Leather Chest", 2);
-//
-//    Weapon* weapPoint = &weapTest;
-//    Armor*  armorPoint = &armTest;
-//
-//    inv.addItem(weapPoint);
-//    inv.addItem(armorPoint);
+    Inventory inv;
+
+    Weapon weapTest("Sword", 1);
+    Armor  armTest("Leather Chest", 2);
+
+    Weapon* weapPoint = &weapTest;
+    Armor*  armorPoint = &armTest;
+    
+    inv.addItem(weapPoint);
+    inv.addItem(armorPoint);
 
     srand(static_cast<unsigned int>(time(0)));
 
@@ -41,11 +41,10 @@ int main() {
     // main loop
 
     int choose = 0;
-    system("clear");
+    
 
     while (hero.getHP() > 0)
     {
-        
         std::cout << "Choose what to do:" << std::endl;
         std::cout << "1: Find Enemy" << std::endl;
         std::cout << "2: Check inventory" << std::endl;
@@ -54,21 +53,32 @@ int main() {
         std::cin >> choose;
         std::cout << std::endl;
 
+        if (choose == 1)
+        {
+            // battle
+            
+        } else if (choose == 2) {
+            
+        } else if (choose == 3)
+        {
+            
+        } else if (choose == 0)
+        {
+            
+        }
+
         switch (choose)
         {
         
         case 1:
-            system("clear");
-            battle(hero);
+            preBattle(hero);
             break;
         
         case 2:
-            system("clear");
-            hero.getInv().coutInventory(); // запилить меню инвентаря
+            inv.coutInventory();
             break;
         
         case 3:
-            system("clear");
             hero.checkStat();
             break;
         

@@ -13,7 +13,6 @@ Creature(100 - rand() % 20, rand() % 7 + 3, rand() % 10 + 1), sword(Weapon("Shor
 
 Hero::~Hero()
 {
-    system("clear");
     std::cout << "You are dead" << std::endl;
 }
 
@@ -30,7 +29,7 @@ int Hero::attack()
 
 int Hero::protect()
 {
-    system("clear");
+    
     srand(static_cast<unsigned int>(time(0)));
     int randomNumber = rand();
     
@@ -41,20 +40,8 @@ int Hero::protect()
 
 void Hero::checkStat()
 {
-    system("clear");
     std::cout << "My stats:" << std::endl;
     std::cout << "    HP: " << hp << std::endl;
     std::cout << "    Attack: " << attackPwr << " + (" << sword.getWeaponAttk() << ")" << std::endl;
     std::cout << "    Defence: " << defence << " + (" << chest.getArmorDef() << ")" << std::endl;
-    std::cout << std::endl;
-}
-
-void Hero::addItemToInv(Item* item)
-{
-    //
-}
-
-Inventory& Hero::getInv()
-{
-    return inv;
 }

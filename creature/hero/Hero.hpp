@@ -26,15 +26,11 @@ public:
 
     void checkStat();
 
-    void addItemToInv(Item* item);
+    // void addItemToInv(Item* item);
     // void delItemFromInv();
-//    void equipItem(); // одевает предмет на персонажа, ячейки вещей у героя должны быть пустыми
-//    void unequipItem(); // возвращает предмет в инвентарь
-    
-    Inventory& getInv();
 
 private:
-    Inventory inv; // запилить инвентарь и смену оружия/брони
+	// Inventory inv; // запилить инвентарь и смену оружия/брони
 	Weapon sword;
 	Armor  chest;
 

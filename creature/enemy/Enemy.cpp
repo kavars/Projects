@@ -19,7 +19,6 @@ std::string createEnemyName()
 Enemy::Enemy():
 Creature(100 - rand() % 20, rand() % 7 + 1, rand() % 5 + 1), name(createEnemyName())
 {
-    system("clear");
     std::cout << "Enemy " << name << " appear there!" << std::endl;
 }
 

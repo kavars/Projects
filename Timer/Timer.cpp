@@ -7,9 +7,9 @@
 
 #include "Timer.hpp"
 
-Timer::Timer():
-start(std::chrono::high_resolution_clock::now()) //catch start point
-{ end = 0;}
+Timer::Timer(std::string blockName):
+start(std::chrono::high_resolution_clock::now()), blockName(blockName) //catch start point
+{ }
 
 Timer::timePoint Timer::checkTimeEnd()
 {
@@ -20,5 +20,5 @@ Timer::timePoint Timer::checkTimeEnd()
 Timer::~Timer()
 {
     duration_of_programm = checkTimeEnd() - start; //duration calculation 
-    std::cout << "Your code worked: " << duration_of_programm.count() << " second(s)" << std::endl;
+    std::cout << "Your block '" << blockName << "' worked: " << duration_of_programm.count() * 1000.0 << " millisecond(s)" << std::endl;
 }
