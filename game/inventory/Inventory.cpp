@@ -51,3 +51,8 @@ void Inventory::coutInventory()
         itInv->second->printItem();
     }
 }
+
+Item* Inventory::operator[](const size_t key)
+{
+    return (--inventory.upper_bound(key))->second;
+}

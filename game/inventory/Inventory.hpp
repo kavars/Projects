@@ -22,6 +22,9 @@ public:
     void addItem(Item* item);
     void deleteItem(size_t itemNum);
     void coutInventory();
+    
+    Item* operator[](const size_t key);
+    
 private:
     std::map<size_t, Item*> inventory;
     size_t capacity;

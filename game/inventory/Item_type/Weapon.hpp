@@ -16,6 +16,7 @@
 class Weapon: public Item {
 public:
     Weapon(std::string wName, int attkPwr);
+    Weapon& operator=(const Weapon &rhs);
 
     void printItem();
     int getWeaponAttk();

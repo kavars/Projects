@@ -11,6 +11,13 @@ Item::Item(std::string iName):
 itemName(iName)
 { }
 
+Item& Item::operator=(const Item &rhs)
+{
+    itemName = rhs.itemName;
+    
+    return *this;
+}
+
 void Item::printItem()
 {
     std::cout << itemName << std::endl;

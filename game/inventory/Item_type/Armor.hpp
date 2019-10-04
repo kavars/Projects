@@ -16,6 +16,7 @@
 class Armor: public Item {
 public:
     Armor(std::string aName, int def);
+    Armor& operator=(const Armor &rhs);
 
     void printItem();
     int getArmorDef();

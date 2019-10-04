@@ -29,13 +29,13 @@ public:
     void addItemToInv(Item* item);
     void delItemFromInv();
     
-    void equipItem(); // одевает предмет на персонажа, ячейки вещей у героя должны быть пустыми
-//    void unequipItem(); // возвращает предмет в инвентарь
+    void equipWeapon(size_t item);
+    void unequipWeapon(); // возвращает предмет в инвентарь
     
     Inventory& getInv();
 
 private:
-    Inventory inv; // запилить инвентарь и смену оружия/брони
+    Inventory inv;
 	Weapon sword;
 	Armor  chest;
 

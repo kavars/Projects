@@ -25,7 +25,7 @@ int main() {
 
     Inventory inv;
 //
-    Weapon weapTest("Sword", 1);
+    Weapon weapTest("Sword", 3);
 //    Item itemTest("SW");
     Armor  armTest("Leather Chest", 2);
 //
@@ -56,6 +56,7 @@ int main() {
         std::cout << "1: Find Enemy" << std::endl;
         std::cout << "2: Check inventory" << std::endl;
         std::cout << "3: Check my stats" << std::endl;
+        std::cout << "4: equip" << std::endl;
         std::cout << "0: Exit game" << std::endl;
         std::cin >> choose;
         std::cout << std::endl;
@@ -94,7 +95,10 @@ int main() {
             system("clear");
             hero.checkStat();
             break;
-        
+        case 4:
+            // test func
+            hero.equipWeapon(0);
+            break;
         case 0:
             hero.setHP(0);
             break;

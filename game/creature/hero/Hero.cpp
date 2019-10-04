@@ -51,7 +51,6 @@ void Hero::checkStat()
 
 void Hero::addItemToInv(Item* item)
 {
-//    std::cout << "Item add 1" << std::endl;
     inv.addItem(item);
 }
 
@@ -69,4 +68,24 @@ void Hero::delItemFromInv()
 Inventory& Hero::getInv()
 {
     return inv;
+}
+
+void Hero::equipWeapon(size_t item)
+{
+    if (sword.getWeaponAttk() == int(NULL))
+    {
+        sword = *((Weapon*)(inv[item]));
+        sword.printItem();
+        inv.deleteItem(item);
+    } else {
+        std::cout << "take off your staff" << std::endl;
+    }
+
+}
+
+void Hero::unequipWeapon()
+{
+//    Weapon* ptrWeap = &sword;
+//    inv.addItem(ptrWeap);
+//    sword.~Weapon();
 }
