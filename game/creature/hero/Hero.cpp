@@ -8,12 +8,14 @@
 #include "Hero.hpp"
 
 Hero::Hero():
-Creature(100 - rand() % 20, rand() % 7 + 3, rand() % 10 + 1), sword(Weapon("Short sword", 1)), chest(Armor("Leather chest", 2))
+Creature(100 - rand() % 20, rand() % 7 + 3, rand() % 10 + 1), sword(new Weapon("Short sword", 4)),  chest(new Armor("Leather chest", 2))
 { }
 
 Hero::~Hero()
 {
     system("clear");
+    delete sword;
+    delete chest;
     std::cout << "You are dead" << std::endl;
 }
 
@@ -25,7 +27,7 @@ int Hero::attack()
     
     int damage = randomNumber % 5;
 
-    return damage * (attackPwr + sword.getWeaponAttk());
+    return damage * (attackPwr + sword->getWeaponAttk());
 }
 
 int Hero::protect()
@@ -36,7 +38,7 @@ int Hero::protect()
     
     int protect = randomNumber % 2;
 
-    return protect * (defence + chest.getArmorDef());
+    return protect * (defence + chest->getArmorDef());
 }
 
 void Hero::checkStat()
@@ -44,8 +46,8 @@ void Hero::checkStat()
     system("clear");
     std::cout << "My stats:" << std::endl;
     std::cout << "    HP: " << hp << std::endl;
-    std::cout << "    Attack: " << attackPwr << " + (" << sword.getWeaponAttk() << ")" << std::endl;
-    std::cout << "    Defence: " << defence << " + (" << chest.getArmorDef() << ")" << std::endl;
+    std::cout << "    Attack: " << attackPwr << " + (" << sword->getWeaponAttk() << ")" << std::endl;
+    std::cout << "    Defence: " << defence << " + (" << chest->getArmorDef() << ")" << std::endl;
     std::cout << std::endl;
 }
 
@@ -72,10 +74,14 @@ Inventory& Hero::getInv()
 
 void Hero::equipWeapon(size_t item)
 {
-    if (sword.getWeaponAttk() == int(NULL))
+    if (sword->getWeaponAttk() == 0)
     {
-        sword = *((Weapon*)(inv[item]));
-        sword.printItem();
+        // delete tmp weapon
+        delete sword;
+        
+        // equip
+        sword = ((Weapon*)(inv[item]));
+        // remove item from inv
         inv.deleteItem(item);
     } else {
         std::cout << "take off your staff" << std::endl;
@@ -85,7 +91,43 @@ void Hero::equipWeapon(size_t item)
 
 void Hero::unequipWeapon()
 {
-//    Weapon* ptrWeap = &sword;
-//    inv.addItem(ptrWeap);
-//    sword.~Weapon();
+    if (sword->getWeaponAttk() != 0) {
+        inv.addItem(sword);
+        
+        // equip tmp weapon
+        sword = new Weapon(" ", 0);
+    } else {
+        std::cout << "you don't equip yet" << std::endl;
+    }
+
+}
+
+void Hero::equipArmor(size_t item)
+{
+    if (chest->getArmorDef() == 0)
+    {
+        // delete tmp weapon
+        delete chest;
+        
+        // equip
+        chest = ((Armor*)(inv[item]));
+        // remove item from inv
+        inv.deleteItem(item);
+    } else {
+        std::cout << "take off your staff" << std::endl;
+    }
+    
+}
+
+void Hero::unequipArmor()
+{
+    if (chest->getArmorDef() != 0) {
+        inv.addItem(chest);
+        
+        // equip tmp weapon
+        chest = new Armor(" ", 0);
+    } else {
+        std::cout << "you don't equip yet" << std::endl;
+    }
+    
 }

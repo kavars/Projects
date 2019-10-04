@@ -18,6 +18,11 @@ Item& Item::operator=(const Item &rhs)
     return *this;
 }
 
+Item::~Item()
+{
+    
+}
+
 void Item::printItem()
 {
     std::cout << itemName << std::endl;

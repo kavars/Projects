@@ -30,14 +30,17 @@ public:
     void delItemFromInv();
     
     void equipWeapon(size_t item);
-    void unequipWeapon(); // возвращает предмет в инвентарь
+    void unequipWeapon();
+    
+    void equipArmor(size_t item);
+    void unequipArmor();
     
     Inventory& getInv();
 
 private:
     Inventory inv;
-	Weapon sword;
-	Armor  chest;
+	Weapon* sword;
+	Armor*  chest;
 
 };
 

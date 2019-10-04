@@ -13,6 +13,13 @@ Inventory::Inventory():
 capacity(10), actualItem(0)
 { }
 
+Inventory::~Inventory()
+{
+    for (std::map<size_t, Item*>::iterator iter = inventory.begin(); iter != inventory.end(); ++iter) {
+        delete iter->second;
+    }
+}
+
 void Inventory::addItem(Item* item)
 {
     if (actualItem != capacity)

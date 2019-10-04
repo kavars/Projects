@@ -15,6 +15,8 @@ class Item {
 public:
     Item(std::string iName);
     Item& operator=(const Item &rhs);
+    
+    virtual ~Item();
 
     virtual void printItem();
 

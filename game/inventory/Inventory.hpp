@@ -18,6 +18,7 @@
 class Inventory {
 public:
     Inventory();
+    ~Inventory();
 
     void addItem(Item* item);
     void deleteItem(size_t itemNum);
