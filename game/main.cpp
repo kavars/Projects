@@ -23,18 +23,6 @@
 
 int main() {
 
-//    Inventory inv;
-//
-//    Weapon weapTest("Sword", 3);
-//    Armor  armTest("Leather Chest", 2);
-//
-//    Weapon* weapPoint = ;
-//    Armor*  armorPoint = ;
-//
-//    inv.addItem(weapPoint);
-//    inv.addItem(armorPoint);
-    
-
     srand(static_cast<unsigned int>(time(0)));
 
     Hero hero;
@@ -49,7 +37,6 @@ int main() {
 
     while (hero.getHP() > 0)
     {
-        
         std::cout << "Choose what to do:" << std::endl;
         std::cout << "1: Find Enemy" << std::endl;
         std::cout << "2: Check inventory" << std::endl;
@@ -96,30 +83,10 @@ int main() {
             break;
         case 4:
             system("clear");
-                std::cout << "Choose what to unequip:" << std::endl;
-                std::cout << "1: Sword" << std::endl;
-                std::cout << "2: Chest" << std::endl;
-                std::cin  >> choose;
-                
-                switch (choose) {
-                    case 1:
-                        system("clear");
-                        hero.getInv().coutInventory();
-                        std::cout << "Choose item: ";
-                        std::cin  >> choose;
-                        hero.equipWeapon(choose);
-                        break;
-                    case 2:
-                        system("clear");
-                        hero.getInv().coutInventory();
-                        std::cout << "Choose item: ";
-                        std::cin  >> choose;
-                        hero.equipArmor(choose);
-                        break;
-                    default:
-                        std::cout << "Illigal number!" << std::endl;
-                        break;
-                }
+            std::cout << "Choose what to unequip:" << std::endl;
+            hero.getInv().coutInventory();
+            std::cin  >> choose;
+            hero.equipItem(choose);
             break;
         case 5:
             system("clear");
@@ -127,20 +94,7 @@ int main() {
             std::cout << "1: Sword" << std::endl;
             std::cout << "2: Chest" << std::endl;
             std::cin  >> choose;
-            
-            switch (choose) {
-                case 1:
-                    system("clear");
-                    hero.unequipWeapon();
-                    break;
-                case 2:
-                    system("clear");
-                    hero.unequipArmor();
-                    break;
-                default:
-                    std::cout << "Illigal number!" << std::endl;
-                    break;
-            }
+            hero.unequipItem(choose);
             break;
 
         case 0:

@@ -7,8 +7,8 @@
 
 #include "Item.hpp"
 
-Item::Item(std::string iName):
-itemName(iName)
+Item::Item(std::string iName, std::string iType):
+itemName(iName), itemType(iType)
 { }
 
 Item& Item::operator=(const Item &rhs)
@@ -26,4 +26,9 @@ Item::~Item()
 void Item::printItem()
 {
     std::cout << itemName << std::endl;
+}
+
+std::string Item::getItemType()
+{
+    return itemType;
 }

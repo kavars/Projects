@@ -8,7 +8,7 @@
 #include "Armor.hpp"
 
 Armor::Armor(std::string aName, int def):
-Item(aName), def(def)
+Item(aName, "armor"), def(def)
 { }
 
 Armor& Armor::operator=(const Armor &rhs)

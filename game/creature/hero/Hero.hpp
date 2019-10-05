@@ -29,11 +29,8 @@ public:
     void addItemToInv(Item* item);
     void delItemFromInv();
     
-    void equipWeapon(size_t item);
-    void unequipWeapon();
-    
-    void equipArmor(size_t item);
-    void unequipArmor();
+    void equipItem(size_t item);
+    void unequipItem(size_t item);
     
     Inventory& getInv();
 

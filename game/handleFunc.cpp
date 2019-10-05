@@ -11,14 +11,14 @@ void battle(Hero &hero)
 {
     bool battleStatus = false;
     Enemy enemy;
+    
+    int choose = 0;
+    
+    int defHeroChoose = 0;
+    int defEnemyChoose = 0;
 
     while (!battleStatus)
     {
-        int choose = 0;
-        
-        int defHeroChoose = 0;
-        int defEnemyChoose = 0;
-        
         std::cout << std::endl;
         std::cout << "You have " << hero.getHP() << " HP!" << std::endl;
         std::cout << "Enemy against you and have " << enemy.getHP() << " HP!" << std::endl;

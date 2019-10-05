@@ -72,62 +72,78 @@ Inventory& Hero::getInv()
     return inv;
 }
 
-void Hero::equipWeapon(size_t item)
+void Hero::equipItem(size_t item)
 {
-    if (sword->getWeaponAttk() == 0)
-    {
-        // delete tmp weapon
-        delete sword;
-        
-        // equip
-        sword = ((Weapon*)(inv[item]));
-        // remove item from inv
-        inv.deleteItem(item);
-    } else {
-        std::cout << "take off your staff" << std::endl;
-    }
-
-}
-
-void Hero::unequipWeapon()
-{
-    if (sword->getWeaponAttk() != 0) {
-        inv.addItem(sword);
-        
-        // equip tmp weapon
-        sword = new Weapon(" ", 0);
-    } else {
-        std::cout << "you don't equip yet" << std::endl;
-    }
-
-}
-
-void Hero::equipArmor(size_t item)
-{
-    if (chest->getArmorDef() == 0)
-    {
-        // delete tmp weapon
-        delete chest;
-        
-        // equip
-        chest = ((Armor*)(inv[item]));
-        // remove item from inv
-        inv.deleteItem(item);
-    } else {
-        std::cout << "take off your staff" << std::endl;
-    }
     
+    if (inv[item]->getItemType() == "weapon")
+    {
+        if (sword->getWeaponAttk() == 0)
+        {
+            // delete tmp weapon
+            delete sword;
+            
+            // equip
+            sword = ((Weapon*)(inv[item]));
+            // remove item from inv
+            inv.deleteItem(item);
+        }
+        else
+        {
+            std::cout << "take off your staff" << std::endl;
+        }
+    }
+    else if (inv[item]->getItemType() == "armor")
+    {
+        if (chest->getArmorDef() == 0)
+        {
+            // delete tmp weapon
+            delete chest;
+            
+            // equip
+            chest = ((Armor*)(inv[item]));
+            // remove item from inv
+            inv.deleteItem(item);
+        }
+        else
+        {
+            std::cout << "take off your staff" << std::endl;
+        }
+    }
+    else
+    {
+        std::cout << "You can't equip that thing" << std::endl;
+    }
 }
 
-void Hero::unequipArmor()
+void Hero::unequipItem(size_t item)
 {
-    if (chest->getArmorDef() != 0) {
-        inv.addItem(chest);
-        
-        // equip tmp weapon
-        chest = new Armor(" ", 0);
-    } else {
-        std::cout << "you don't equip yet" << std::endl;
+    switch (item) {
+        case 1:
+            if (sword->getWeaponAttk() != 0)
+            {
+                inv.addItem(sword);
+                
+                // equip tmp weapon
+                sword = new Weapon(" ", 0);
+            }
+            else
+            {
+                std::cout << "you don't equip yet" << std::endl;
+            }
+            break;
+        case 2:
+            if (chest->getArmorDef() != 0) {
+                inv.addItem(chest);
+                
+                // equip tmp weapon
+                chest = new Armor(" ", 0);
+            } else {
+                std::cout << "you don't equip yet" << std::endl;
+            }
+            break;
+            
+        default:
+            std::cout << "Illigal item" << std::endl;
+            break;
     }
-    
 }

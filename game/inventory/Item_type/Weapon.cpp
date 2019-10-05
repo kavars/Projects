@@ -8,7 +8,7 @@
 #include "Weapon.hpp"
 
 Weapon::Weapon(std::string wName, int attkPwr):
-Item(wName), attkPwr(attkPwr)
+Item(wName, "weapon"), attkPwr(attkPwr)
 { }
 
 Weapon& Weapon::operator=(const Weapon &rhs)

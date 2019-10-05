@@ -13,15 +13,18 @@
 
 class Item {
 public:
-    Item(std::string iName);
+    Item(std::string iName, std::string iType);
     Item& operator=(const Item &rhs);
     
     virtual ~Item();
 
     virtual void printItem();
+    
+    std::string getItemType();
 
 private:
     std::string itemName;
+    std::string itemType;
 };
 
 #endif /* Item_hpp */
