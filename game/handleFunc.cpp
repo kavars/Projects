@@ -46,16 +46,23 @@ void battle(Hero &hero)
                 break;
         }
         
-        if (enemy.getHP() < 0)
-        {
+        if (enemy.getHP() < 0) {
             system("clear");
             std::cout << "Cool, enemy is dead!" << std::endl;
+            Item* tmp = enemy.dropItem();
+            if (tmp != nullptr) {
+                std::cout << "Your drop:" << std::endl;
+                tmp->printItem();
+                hero.addItemToInv(tmp);
+            } else {
+                delete tmp;
+                std::cout << "No loot there stalker" << std::endl;
+            }
+            
             std::cout << std::endl;
             std::cout << std::endl;
             battleStatus = true;
-        }
-        else
-        {
+        } else {
             int chance = rand() % 2;
             switch (chance) {
                 case 0:

@@ -11,8 +11,8 @@ Creature::Creature(int hp, int attackPwr, int defence):
 hp(hp), attackPwr(attackPwr), defence(defence)
 { }
 
-int Creature::attack() {
-    
+int Creature::attack()
+{
     srand(static_cast<unsigned int>(time(0)));
     int randomNumber = rand();
     
@@ -21,8 +21,8 @@ int Creature::attack() {
     return damage * attackPwr;
 }
 
-int Creature::protect() {
-    
+int Creature::protect()
+{
     srand(static_cast<unsigned int>(time(0)));
     int randomNumber = rand();
     
@@ -31,10 +31,12 @@ int Creature::protect() {
     return protect * defence;
 }
 
-int Creature::getHP() {
+int Creature::getHP()
+{
     return hp;
 }
 
-void Creature::setHP(int HP) {
+void Creature::setHP(int HP)
+{
     hp = HP;    
 }

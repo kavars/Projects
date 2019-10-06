@@ -22,8 +22,7 @@ Inventory::~Inventory()
 
 void Inventory::addItem(Item* item)
 {
-    if (actualItem != capacity)
-    {
+    if (actualItem != capacity) {
         size_t num = 0;
         for (size_t i = 0; i != capacity; ++i) {
             if (inventory[i] == NULL) {
@@ -37,6 +36,7 @@ void Inventory::addItem(Item* item)
         std::cout << std::endl;
         ++actualItem;
     } else {
+        delete item;
         std::cout << "Your inventory full" << std::endl;
     } 
 }
@@ -44,8 +44,14 @@ void Inventory::addItem(Item* item)
 void Inventory::deleteItem(size_t itemNum)
 {
     std::map<size_t, Item*>::iterator delIter = inventory.find(itemNum);
-    inventory.erase(delIter);
-    --actualItem;
+    if (delIter != inventory.end()) {
+        delete delIter->second;
+        inventory.erase(delIter);
+        --actualItem;
+    } else {
+        std::cout << "Illigal Item key" << std::endl;
+    }
+    
 }
 
 void Inventory::coutInventory()
@@ -57,6 +63,14 @@ void Inventory::coutInventory()
         std::cout << itInv->first << " ";
         itInv->second->printItem();
     }
+}
+
+bool Inventory::existKey(size_t key)
+{
+    if (inventory.find(key) != inventory.end()) {
+        return true;
+    }
+    return false;
 }
 
 Item* Inventory::operator[](const size_t key)

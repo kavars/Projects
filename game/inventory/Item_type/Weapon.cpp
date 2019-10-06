@@ -17,7 +17,6 @@ Weapon& Weapon::operator=(const Weapon &rhs)
     attkPwr = rhs.attkPwr;
     
     return *this;
-
 }
 
 void Weapon::printItem()

@@ -11,6 +11,8 @@
 #include <iostream>
 #include <string>
 
+enum class itemType: int {Weapon, Armor, Size};
+
 class Item {
 public:
     Item(std::string iName, std::string iType);
@@ -18,7 +20,7 @@ public:
     
     virtual ~Item();
 
-    virtual void printItem();
+    void virtual printItem();
     
     std::string getItemType();
 

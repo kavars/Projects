@@ -14,6 +14,9 @@
 #include <string>
 #include <vector>
 
+#include "../../inventory/Item.hpp"
+#include "../../inventory/Item_type/Armor.hpp"
+#include "../../inventory/Item_type/Weapon.hpp"
 #include "../Creature.hpp"
 
 std::string createEnemyName();
@@ -23,6 +26,8 @@ public:
     Enemy();
 
     std::string getEnemyName();
+    
+    Item* dropItem();
 
 private:
     std::string name;

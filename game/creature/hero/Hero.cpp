@@ -21,7 +21,6 @@ Hero::~Hero()
 
 int Hero::attack()
 {
-
     srand(static_cast<unsigned int>(time(0)));
     int randomNumber = rand();
     
@@ -64,6 +63,7 @@ void Hero::delItemFromInv()
     size_t numItem;
     std::cin >> numItem;
     inv.deleteItem(numItem);
+    
 }
 
 
@@ -74,44 +74,41 @@ Inventory& Hero::getInv()
 
 void Hero::equipItem(size_t item)
 {
-    
-    if (inv[item]->getItemType() == "weapon")
-    {
-        if (sword->getWeaponAttk() == 0)
-        {
-            // delete tmp weapon
-            delete sword;
-            
-            // equip
-            sword = ((Weapon*)(inv[item]));
-            // remove item from inv
-            inv.deleteItem(item);
+    // check exist Item
+    if (inv.existKey(item)) {
+        
+        // check type Item
+        if (inv[item]->getItemType() == "weapon") {
+            // check tmp Item
+            if (sword->getWeaponAttk() == 0) {
+                // delete tmp weapon
+                delete sword;
+                
+                // equip
+                sword = ((Weapon*)(inv[item]));
+                // remove item from inv
+                inv.deleteItem(item);
+            } else {
+                std::cout << "take off your staff" << std::endl;
+            }
+        } else if (inv[item]->getItemType() == "armor") {
+            // check tmp Item
+            if (chest->getArmorDef() == 0) {
+                // delete tmp weapon
+                delete chest;
+                
+                // equip
+                chest = ((Armor*)(inv[item]));
+                // remove item from inv
+                inv.deleteItem(item);
+            } else {
+                std::cout << "take off your staff" << std::endl;
+            }
+        } else {
+            std::cout << "You can't equip that thing" << std::endl;
         }
-        else
-        {
-            std::cout << "take off your staff" << std::endl;
-        }
-    }
-    else if (inv[item]->getItemType() == "armor")
-    {
-        if (chest->getArmorDef() == 0)
-        {
-            // delete tmp weapon
-            delete chest;
-            
-            // equip
-            chest = ((Armor*)(inv[item]));
-            // remove item from inv
-            inv.deleteItem(item);
-        }
-        else
-        {
-            std::cout << "take off your staff" << std::endl;
-        }
-    }
-    else
-    {
-        std::cout << "You can't equip that thing" << std::endl;
+    } else {
+        std::cout << "Illigal Item key" << std::endl;
     }
 }
 
@@ -119,15 +116,12 @@ void Hero::unequipItem(size_t item)
 {
     switch (item) {
         case 1:
-            if (sword->getWeaponAttk() != 0)
-            {
+            if (sword->getWeaponAttk() != 0) {
                 inv.addItem(sword);
                 
                 // equip tmp weapon
                 sword = new Weapon(" ", 0);
-            }
-            else
-            {
+            } else {
                 std::cout << "you don't equip yet" << std::endl;
             }
             break;

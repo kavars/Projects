@@ -21,8 +21,8 @@ class Hero: public Creature {
 public:
     Hero();
     ~Hero();
-    int attack();
-    int protect();
+    int virtual attack();
+    int virtual protect();
 
     void checkStat();
 

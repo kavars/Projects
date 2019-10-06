@@ -17,7 +17,6 @@ Armor& Armor::operator=(const Armor &rhs)
     def = rhs.def;
     
     return *this;
-    
 }
 
 void Armor::printItem()

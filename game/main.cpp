@@ -59,7 +59,7 @@ int main() {
             system("clear");
             std::cout << "Choose what to do:" << std::endl;
             std::cout << "1: Check inventory" << std::endl;
-            std::cout << "2: Delte item" << std::endl;
+            std::cout << "2: Delete item" << std::endl;
             std::cin >> choose;
                 
             switch (choose) {

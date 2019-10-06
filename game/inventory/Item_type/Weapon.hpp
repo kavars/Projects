@@ -18,7 +18,7 @@ public:
     Weapon(std::string wName, int attkPwr);
     Weapon& operator=(const Weapon &rhs);
 
-    void printItem();
+    void virtual printItem();
     int getWeaponAttk();
 
 private:

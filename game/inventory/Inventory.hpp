@@ -24,6 +24,8 @@ public:
     void deleteItem(size_t itemNum);
     void coutInventory();
     
+    bool existKey(size_t key);
+    
     Item* operator[](const size_t key);
     
 private:

@@ -27,3 +27,22 @@ std::string Enemy::getEnemyName()
 {
     return name;
 }
+
+Item* Enemy::dropItem()
+{
+    // drop or not
+    int chance = rand() % 2;
+    if (chance) {
+        // randomize type of item
+        int drop = rand() % (int)itemType::Size;
+        if (drop == (int)itemType::Weapon) {
+            Weapon* dropWeapon = new Weapon("Drop sword test", (rand() % 10 + 1));
+            return dropWeapon;
+        } else if (drop == (int)itemType::Armor) {
+            Armor* dropArmor = new Armor("Drop chest test", (rand() % 10 + 1));
+            return dropArmor;
+        }
+    }
+    
+    return nullptr;
+}

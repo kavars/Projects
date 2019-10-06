@@ -16,8 +16,8 @@ class Creature {
 public:
     Creature(int hp, int attackPwr, int defence);
 
-    int attack();
-    int protect();
+    int virtual attack();
+    int virtual protect();
 
     int getHP();
     void setHP(int HP);
