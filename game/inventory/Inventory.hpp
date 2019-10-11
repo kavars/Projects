@@ -17,6 +17,7 @@
 
 class Inventory {
 public:
+
     Inventory();
     ~Inventory();
 

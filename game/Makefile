@@ -2,47 +2,60 @@
 CXX = clang++
 
 # flags
-CXXFLAG = -c -Wall -Wextra -pedantic -std=c++14
+CXXFLAGS = -g -Wall -Wformat -Wextra -pedantic -std=c++14
 
-all: game
+# libs
+# LIBS = -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo -lglew -lglfw3
 
-game: main.o Hero.o Enemy.o Item.o Weapon.o Armor.o Inventory.o handleFunc.o Creature.o
-		$(CXX) main.o Hero.o Enemy.o Item.o Weapon.o Armor.o Inventory.o handleFunc.o Creature.o -o game
+EXE = game
 
-main.o: main.cpp
-		$(CXX) $(CXXFLAG) main.cpp
-
+# sources
+SOURCES = main.cpp handleFunc.cpp
 
 # creatures
-Creature.o: creature/Creature.cpp
-		$(CXX) $(CXXFLAG) creature/Creature.cpp
-
-Hero.o: creature/hero/Hero.cpp
-		$(CXX) $(CXXFLAG) creature/hero/Hero.cpp
-
-Enemy.o: creature/enemy/Enemy.cpp
-		$(CXX) $(CXXFLAG) creature/enemy/Enemy.cpp
-
+SOURCES += creature/Creature.cpp
+SOURCES += creature/Level.cpp
+SOURCES += creature/hero/Hero.cpp
+SOURCES += creature/enemy/Enemy.cpp
 
 # inventory and items
-Item.o: inventory/Item.cpp
-		$(CXX) $(CXXFLAG) inventory/Item.cpp
 
-Weapon.o: inventory/Item_type/Weapon.cpp
-		$(CXX) $(CXXFLAG) inventory/Item_type/Weapon.cpp
+SOURCES += inventory/Item.cpp
+SOURCES += inventory/Item_type/Weapon.cpp
+SOURCES += inventory/Item_type/Armor.cpp
+SOURCES += inventory/Inventory.cpp
 
-Armor.o: inventory/Item_type/Armor.cpp
-		$(CXX) $(CXXFLAG) inventory/Item_type/Armor.cpp
+# imgui
+# SOURCES += imgui/imgui_impl_glfw.cpp imgui/imgui_impl_opengl3.cpp
+# SOURCES += imgui/imgui.cpp imgui/imgui_demo.cpp imgui/imgui_draw.cpp imgui/imgui_widgets.cpp
 
-Inventory.o: inventory/Inventory.cpp
-		$(CXX) $(CXXFLAG) inventory/Inventory.cpp
+OBJS = $(addsuffix .o, $(basename $(notdir $(SOURCES))))
 
-handleFunc.o: handleFunc.cpp
-		$(CXX) $(CXXFLAG) handleFunc.cpp
+%.o:%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
 
-# utils
-# Timer.o: ../../Timer/Timer.cpp
-# 		$(CXX) $(CXXFLAG) ../../Timer/Timer.cpp
+%.o:creature/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+%.o:creature/hero/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+%.o:creature/enemy/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+%.o:inventory/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+%.o:inventory/Item_type/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+%.o:imgui/%.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+all: $(EXE)
+
+$(EXE): $(OBJS)
+	$(CXX) -o $@ $^ $(CXXFLAGS) $(LIBS)
 
 clean:
-		rm -rf *.o game
+		rm -rf $(EXE) $(OBJS) imgui.ini

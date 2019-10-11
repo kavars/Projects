@@ -9,7 +9,7 @@
 
 void battle(Hero &hero)
 {
-    bool battleStatus = false;
+    bool battleStatus = true;
     Enemy enemy;
     
     int choose = 0;
@@ -17,7 +17,7 @@ void battle(Hero &hero)
     int defHeroChoose = 0;
     int defEnemyChoose = 0;
 
-    while (!battleStatus)
+    while (battleStatus)
     {
         std::cout << std::endl;
         std::cout << "You have " << hero.getHP() << " HP!" << std::endl;
@@ -27,7 +27,8 @@ void battle(Hero &hero)
         std::cout << "1: Attack" << std::endl;
         std::cout << "2: Defend" << std::endl;
         std::cout << "0: Exit game" << std::endl;
-        std::cin >> choose;
+        std::cin  >> choose;
+        
         switch (choose) {
             case 1:
                 system("clear");
@@ -38,7 +39,7 @@ void battle(Hero &hero)
                 defHeroChoose = hero.protect();
                 break;
             case 0:
-                battleStatus = true;
+                battleStatus = false;
                 break;
                 
             default:
@@ -49,6 +50,9 @@ void battle(Hero &hero)
         if (enemy.getHP() < 0) {
             system("clear");
             std::cout << "Cool, enemy is dead!" << std::endl;
+            std::cout << "You get 50 exp!" << std::endl;
+            hero.takeExp(50);
+            hero.lvlUp();
             Item* tmp = enemy.dropItem();
             if (tmp != nullptr) {
                 std::cout << "Your drop:" << std::endl;
@@ -56,12 +60,12 @@ void battle(Hero &hero)
                 hero.addItemToInv(tmp);
             } else {
                 delete tmp;
-                std::cout << "No loot there stalker" << std::endl;
+                std::cout << "No loot there" << std::endl;
             }
             
             std::cout << std::endl;
             std::cout << std::endl;
-            battleStatus = true;
+            battleStatus = false;
         } else {
             int chance = rand() % 2;
             switch (chance) {

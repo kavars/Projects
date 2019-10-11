@@ -13,6 +13,7 @@
 #include <ctime>
 
 #include "../Creature.hpp"
+#include "../Level.hpp"
 #include "../../inventory/Inventory.hpp"
 #include "../../inventory/Item_type/Weapon.hpp"
 #include "../../inventory/Item_type/Armor.hpp"
@@ -32,13 +33,18 @@ public:
     void equipItem(size_t item);
     void unequipItem(size_t item);
     
+    void takeExp(int newExp);
+
+    void lvlUp();
+    
     Inventory& getInv();
 
 private:
     Inventory inv;
 	Weapon* sword;
 	Armor*  chest;
-
+    
+    Level lvl;
 };
 
 #endif // HERO_HPP

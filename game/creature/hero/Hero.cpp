@@ -44,6 +44,8 @@ void Hero::checkStat()
 {
     system("clear");
     std::cout << "My stats:" << std::endl;
+    std::cout << "    Level: " << lvl.getLvl() << std::endl;
+    std::cout << "    Exp to next level: " << lvl.getBorder() - lvl.getExp() << std::endl;
     std::cout << "    HP: " << hp << std::endl;
     std::cout << "    Attack: " << attackPwr << " + (" << sword->getWeaponAttk() << ")" << std::endl;
     std::cout << "    Defence: " << defence << " + (" << chest->getArmorDef() << ")" << std::endl;
@@ -64,12 +66,6 @@ void Hero::delItemFromInv()
     std::cin >> numItem;
     inv.deleteItem(numItem);
     
-}
-
-
-Inventory& Hero::getInv()
-{
-    return inv;
 }
 
 void Hero::equipItem(size_t item)
@@ -140,4 +136,31 @@ void Hero::unequipItem(size_t item)
             std::cout << "Illigal item" << std::endl;
             break;
     }
+}
+
+void Hero::takeExp(int newExp)
+{
+    lvl.setExp(newExp + lvl.getExp());
+    lvl.CheckLevel();
+}
+
+void Hero::lvlUp()
+{
+    if (lvl.getFlag()) {
+        std::cout << "Conglaturations!" << std::endl;
+        std::cout << "Now you are at " << lvl.getLvl() << " level" << std::endl;
+        std::cout << hp << " + 10" << std::endl;
+        std::cout << attackPwr << " + 5" << std::endl;
+        std::cout << defence << " + 5" << std::endl;
+        hp += 10;
+        attackPwr += 5;
+        defence += 5;
+        lvl.setFlag();
+    }
+
+}
+
+Inventory& Hero::getInv()
+{
+    return inv;
 }

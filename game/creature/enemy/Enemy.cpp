@@ -34,11 +34,12 @@ Item* Enemy::dropItem()
     int chance = rand() % 2;
     if (chance) {
         // randomize type of item
-        int drop = rand() % (int)itemType::Size;
-        if (drop == (int)itemType::Weapon) {
+        itemType drop = itemType(rand() % (int)itemType::Size);
+        
+        if (drop == itemType::Weapon) {
             Weapon* dropWeapon = new Weapon("Drop sword test", (rand() % 10 + 1));
             return dropWeapon;
-        } else if (drop == (int)itemType::Armor) {
+        } else if (drop == itemType::Armor) {
             Armor* dropArmor = new Armor("Drop chest test", (rand() % 10 + 1));
             return dropArmor;
         }
